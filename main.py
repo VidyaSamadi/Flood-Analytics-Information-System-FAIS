@@ -12,21 +12,38 @@ import datetime
 import time
 
 if __name__ == "__main__":
+    
+    '''
+    This is gathering tweet and USGS water data Dont delete
     twitter_client = twitterClient("weatherchannel")
     api = twitter_client.get_twitter_api()
     twitter_analyzer = tweet_analyzer()
     tweets = api.user_timeline(screen_name="weatherchannel")
     twitter_client.get_image_tweet()
-
-    #tweet_criteria = tweet_criteria.TweetCriteria()
-    #tweet_criteria.setUsername("weatherchannel").setSince("2018-09-07").setUntil("2018-10-7").setMaxTweets(10000)
-    #tweet = tweet_manager.TweetManager.getTweets(tweet_criteria)
-    #tweet_criteria.setUsername("weatherchannel").setSince("2018-09-07").setUntil("2018-10-7").setMaxTweets(10000)
-    #tweet = tweet_manager.TweetManager.getTweets(tweet_criteria)
-    #df = twitter_analyzer.tweets_to_dataframe(tweet)
-    #df.to_csv("data2.csv")
+    
+    tweet_criteria = tweet_criteria.TweetCriteria()
+    tweet_criteria.setUsername("weatherchannel").setSince("2018-09-07").setUntil("2018-10-7").setMaxTweets(10000)
+    tweet = tweet_manager.TweetManager.getTweets(tweet_criteria)
+    tweet_criteria.setUsername("weatherchannel").setSince("2018-09-07").setUntil("2018-10-7").setMaxTweets(10000)
+    tweet = tweet_manager.TweetManager.getTweets(tweet_criteria)
+    df = twitter_analyzer.tweets_to_dataframe(tweet)
+    df.to_csv("data2.csv")
     flood_real_time = flood_real_time.usgsFloodRealTime()
     df = pd.DataFrame(flood_real_time.getWaterWatch())
     df['flow_dt'] = pd.to_datetime(df['flow_dt'])
     df.sort_values('flow_dt')
+    i = 0
+    frames = []
+    frames.append(df)
+    #time.sleep(15*60)
+    while i <= 192:
+        temp_df = pd.DataFrame(flood_real_time.getWaterWatch())
+        frames.append(temp_df)
+        time.sleep(15*60)
+        i = i+1
+    df = pd.concat(frames)
     df.to_csv('flood.csv')
+    '''
+    flood_real_time = flood_real_time.usgsFloodRealTime()
+    flood_real_time.getImageWaterWatch()
+    time.sleep(1)
