@@ -1,9 +1,11 @@
 import cv2
-
+import numpy as np
 class imageProcessor():
     def __init__(self):
         pass
     
-    def autoAdustment(self, src, dst, clip_hist_percent=0):
-        cv2.CV_Assert(clip_hist_percent >=0)
-        cv2.CV_assert(src.type() == cv2.CV_SUC1 or (src.type() == cv2.CV_SUC3) or )
+    def autoAdustment(self, img):
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        equ = cv2.equalizeHist(gray)
+        return equ
+

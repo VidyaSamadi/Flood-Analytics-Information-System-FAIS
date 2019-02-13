@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 import cv2
 import re
+#from imageProcessor import imageProcessor
 
 class usgsFloodRealTime():
     def __init__(self):
@@ -22,8 +23,8 @@ class usgsFloodRealTime():
         img = Image.open(BytesIO(response.content)).convert('RGB')
         open_cv_image = np.array(img)
         open_cv_image = open_cv_image[:, :, ::-1].copy() 
-        
-        cv2.imshow('image',open_cv_image)
+        image_show = imageProcessor.autoAdustment(open_cv_image)
+        cv2.imshow('image',image_show)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
         print()

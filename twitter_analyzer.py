@@ -28,6 +28,6 @@ class tweet_analyzer():
         df['source'] = np.array([tweet.source for tweet in tweets])
         df['likes'] = np.array([tweet.favorite_count for tweet in tweets])
         df['retweet'] = np.array([tweet.retweet_count for tweet in tweets])        
-        df['image_url'] = np.array([tweet.entities['media'].media_url for tweet in tweets])
+        df['image_url'] = np.array([tweet.media for tweet in tweets])
 
         return df

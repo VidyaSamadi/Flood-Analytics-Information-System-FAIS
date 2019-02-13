@@ -1,4 +1,4 @@
-import urllib.request, urllib.parse, urllib.error,urllib.request,urllib.error,urllib.parse,json,re,datetime,sys,http.cookiejar
+import urllib.request, urllib.parse, urllib.error,urllib.request,urllib.error,urllib.parse,json,re,datetime,sys,http.cookiejar,time
 from pyquery import PyQuery
 class TweetModel:
     def __init__(self):
@@ -108,8 +108,8 @@ class TweetManager:
                 tweet.id = id
                 tweet.source = 'https://twitter.com' + permalink
                 tweet.username = username
-                tweet.text = text
-                tweet.created_at = date
+                tweet.text = text                
+                tweet.created_at = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(date))
                 tweet.retweet_count = retweets
                 tweet.favorite_count = likes
                 tweet.mentions = " ".join(re.compile('(@\\w*)').findall(tweet.text))
