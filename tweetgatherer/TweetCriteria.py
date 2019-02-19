@@ -1,5 +1,7 @@
+#	Set up the Criteria for Twitter Search the Setting that is possible are
+#	Username, Time Gap, Query, Language, Max Tweets for data return
+#	The Function is then send the Criteria TweetManager.py 
 class TweetCriteria:
-
 	def __init__(self):
 		self.max_tweets = 0
 

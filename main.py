@@ -15,12 +15,12 @@ import time
 if __name__ == "__main__":
     nasa_manager = nasa.NasaGatherer()
     urls = []
-    urls.append("https://hydro1.gesdisc.eosdis.nasa.gov/opendap/FLDAS/FLDAS_VIC025_A_EA_D.001/2019/02/FLDAS_VIC025_A_EA_D.A20190201.001.nc.nc4")
-    urls.append("https://hydro1.gesdisc.eosdis.nasa.gov/opendap/FLDAS/FLDAS_VIC025_A_EA_D.001/2019/02/FLDAS_VIC025_A_EA_D.A20190209.001.nc.nc4")
-    urls.append("https://hydro1.gesdisc.eosdis.nasa.gov/opendap/FLDAS/FLDAS_VIC025_A_EA_D.001/2019/02/FLDAS_VIC025_A_EA_D.A20190208.001.nc.nc4")
-    nasa_manager.getNasaEarthData(urls)
-    
-
+    #urls.append("https://hydro1.gesdisc.eosdis.nasa.gov/opendap/FLDAS/FLDAS_VIC025_A_EA_D.001/2019/02/FLDAS_VIC025_A_EA_D.A20190201.001.nc.nc4")
+    #urls.append("https://hydro1.gesdisc.eosdis.nasa.gov/opendap/FLDAS/FLDAS_VIC025_A_EA_D.001/2019/02/FLDAS_VIC025_A_EA_D.A20190209.001.nc.nc4")
+    #urls.append("https://hydro1.gesdisc.eosdis.nasa.gov/opendap/FLDAS/FLDAS_VIC025_A_EA_D.001/2019/02/FLDAS_VIC025_A_EA_D.A20190208.001.nc.nc4")
+    #nasa_manager.getNasaEarthData(urls)
+    #nasa_manager.readNasaNetCDF()
+    nasa_manager.getEarthData()
     '''
     #This is gathering tweet and USGS water data Dont delete
     twitter_client = twitterClient("weatherchannel")

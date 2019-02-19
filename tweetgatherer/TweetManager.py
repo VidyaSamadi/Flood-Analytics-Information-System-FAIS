@@ -1,3 +1,7 @@
+#   Tweet Manager, This class in charge Searching through twitter tweets. The function minic the search 
+#   request in browser. The data getting from the tweet is id, source, username, text, created_at, retweet_count
+#   favorite_count, mentions, hashtags, geo location, author_id, media 
+
 import urllib.request, urllib.parse, urllib.error,urllib.request,urllib.error,urllib.parse,json,re,datetime,sys,http.cookiejar,time
 from pyquery import PyQuery
 class TweetModel:
