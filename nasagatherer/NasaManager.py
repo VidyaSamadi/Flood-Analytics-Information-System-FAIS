@@ -5,7 +5,7 @@ import netCDF4
 import os
 import cv2
 import numpy as np
-from nasa import earth
+#from nasa import earth
 
 class SessionWithHeaderRedirection(requests.Session):
     AUTH_HOST = 'urs.earthdata.nasa.gov'

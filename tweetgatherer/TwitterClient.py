@@ -4,7 +4,7 @@ from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
 from tweepy import TweepError
-from twitter_analyzer import tweet_analyzer
+from tweetgatherer import TweetAnalyzer
 import time
 import twitterkeys
 import pandas as pd
@@ -69,7 +69,7 @@ class twitterClient():
     def get_tweets_between_date2(self, start, end):
         df = pd.DataFrame()
         c = Cursor(self.twitter_client.user_timeline, id=self.twitter_user).pages()
-        analyzer = tweet_analyzer()
+        analyzer = TweetAnalyzer()
         while True:
             try:
                 tweets_list = c.next()
