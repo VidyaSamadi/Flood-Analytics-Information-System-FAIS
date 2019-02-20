@@ -7,7 +7,8 @@ import numpy as np
 import usgsgatherer.USGSFloodCriteria as criteria
 import cv2
 import re
-import urllib.request
+import urllib
+import urllib3
 import time
 from usgsgatherer.imageProcessor import imageProcessor
 
@@ -25,6 +26,8 @@ class usgsFloodManager():
             time.sleep(5)
     def getImageWaterWatch(self):
         rocky_creed_cam = "http://b7b.hdrelay.com/cameras/fa96bb1e-426d-4b40-a820-251713325420/GetOneShot?size=800x450"
+        lake_moultrie_cam = "http://b7b.hdrelay.com/cameras/dab6dc0d-d702-4146-899f-85a7945de140/GetLiveImage?connection_id=35951&seq=42&size=800x450"
+
         response = requests.get(rocky_creed_cam)
         img = Image.open(BytesIO(response.content)).convert('Gray')
         open_cv_image = np.array(img)
@@ -66,5 +69,10 @@ class usgsFloodManager():
                 temp = line.replace('\t', ',')
                 f.writelines(temp)
         f.close()
+        url2 = "https://www2.usgs.gov/water/southatlantic/sc/rivercam/webcam-tearcoat_near_manning.html"
+        http = urllib3.PoolManager()
+        r = http.request('GET', url2)
+
+        print(r.data)
   
 
