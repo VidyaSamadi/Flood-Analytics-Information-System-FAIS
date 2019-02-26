@@ -23,10 +23,13 @@ if __name__ == "__main__":
     #nasa_manager.readNasaNetCDF()
     #nasa_manager.getEarthData()
     flood_manager = flood_real_time.usgsFloodManager()
-    flood_criteria = usgs_criteria.usgsCriteria()
-    flood_parameter = ["00065", "00045"]
-    flood_criteria.setStationNumber('02110400').setParameters(flood_parameter).setSince("2019-02-01").setUntil("2019-02-19").setRegion("sc")
-    flood_manager.getFloodDataCSV(flood_criteria)
+    #flood_criteria = usgs_criteria.usgsCriteria()
+    #flood_parameter = ["00065", "00045"]
+    #flood_criteria.setStationNumber('02110400').setParameters(flood_parameter).setSince("2019-02-01").setUntil("2019-02-19").setRegion("sc")
+    #flood_manager.getFloodDataCSV(flood_criteria)
+    flood_manager.getImageWaterWatch("02130810")
+
+
     '''
     #This is gathering tweet and USGS water data Dont delete
     twitter_client = twitterClient("weatherchannel")
@@ -49,12 +52,15 @@ if __name__ == "__main__":
     #get data from NWS 
     twitter = tweet_analyzer()
     tweeter_criteria = tweet_criteria.TweetCriteria()
-    tweeter_criteria.setUsername("NWS").setSince("2018-09-07").setUntil("2018-10-7").setMaxTweets(10000)
+    tweeter_criteria.setUsername("primpla").setMaxTweets(10000)
     tweet = tweet_manager.TweetManager.getTweets(tweeter_criteria)
     df = twitter.tweets_to_dataframe(tweet)
     df['sentiment'] = np.array([twitter.analyze_sentiment(tweet) for tweet in df['Tweets']])
     frames.append(df)
     time.sleep(1)
+    
+    df = pd.concat(frames)
+    df.to_csv('data_twitter.csv')
     '''
     '''
     #get data from NWSEastern ‏
