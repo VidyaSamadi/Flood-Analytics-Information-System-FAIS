@@ -4,13 +4,14 @@ from io import BytesIO
 import pyquery
 import pandas as pd
 import numpy as np
-import usgsgatherer.USGSFloodCriteria as criteria
+import fsia.usgsgatherer.USGSFloodCriteria as criteria
 import cv2
 import re
 import time
 import json
 import http
-from usgsgatherer.imageProcessor import imageProcessor
+import urllib
+from fsia.usgsgatherer.imageProcessor import imageProcessor
 
 class imageWaterWatchModel():
     def __init__(self):

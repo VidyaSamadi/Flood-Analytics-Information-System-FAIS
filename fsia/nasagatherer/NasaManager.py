@@ -1,5 +1,5 @@
 import requests
-import nasagatherer.NasaCredential as NasaCredential
+import fsia.nasagatherer.NasaCredential as NasaCredential
 import time
 import netCDF4
 import os
@@ -50,15 +50,6 @@ class NasaGatherer():
         rootgrp = netCDF4.Dataset("FLDAS_VIC025_A_EA_D.A20190201.001.nc.nc4", "a" , format="NETCDF4")
         print(rootgrp.file_format)
 
-    def getEarthData(self):
-        filter_specification = earth.assets(lat=34.0, lon=-81.0, begin='2015-09-14', end='2015-10-22')
-        images = []
-        i = 0
-        for a in filter_specification:
-            images.append(a.get_asset_image())
-        for image in images:
-            image.image.show()
-        return
 
 
 
