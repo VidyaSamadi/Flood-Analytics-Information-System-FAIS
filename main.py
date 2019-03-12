@@ -1,10 +1,10 @@
-from tweetgatherer.TwitterClient import twitterClient
-from tweetgatherer.TweetAnalyzer import tweet_analyzer
-import tweetgatherer.TweetCriteria as tweet_criteria
-import tweetgatherer.TweetManager as tweet_manager
-import usgsgatherer.USGSFloodManager as flood_real_time
-import usgsgatherer.USGSFloodCriteria as usgs_criteria
-import nasagatherer.NasaManager as nasa
+from fsia.tweetgatherer.TwitterClient import twitterClient
+from fsia.tweetgatherer.TweetAnalyzer import tweet_analyzer
+import fsia.tweetgatherer.TweetCriteria as tweet_criteria
+import fsia.tweetgatherer.TweetManager as tweet_manager
+import fsia.usgsgatherer.USGSFloodManager as flood_real_time
+import fsia.usgsgatherer.USGSFloodCriteria as usgs_criteria
+import fsia.nasagatherer.NasaManager as nasa
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -23,12 +23,23 @@ if __name__ == "__main__":
     #nasa_manager.readNasaNetCDF()
     #nasa_manager.getEarthData()
     flood_manager = flood_real_time.usgsFloodManager()
-    #flood_criteria = usgs_criteria.usgsCriteria()
-    #flood_parameter = ["00065", "00045"]
-    #flood_criteria.setStationNumber('02110400').setParameters(flood_parameter).setSince("2019-02-01").setUntil("2019-02-19").setRegion("sc")
-    #flood_manager.getFloodDataCSV(flood_criteria)
-    flood_manager.getImageWaterWatch("02130810")
-
+    flood_criteria = usgs_criteria.usgsCriteria()
+    flood_parameter = ["00065", "00045"]
+    flood_criteria.setStationNumber('02169500').setParameters(flood_parameter).setSince("2019-03-01").setUntil("2019-03-05").setRegion("sc")
+    flood_manager.getFloodDataCSV(flood_criteria)
+    flood_manager.getImageWaterWatch("02169506")
+    frames = []
+    #get data from NWS 
+    twitter = tweet_analyzer()
+    tweeter_criteria = tweet_criteria.TweetCriteria()
+    tweeter_criteria.setUsername("weatherchannel").setSince("2018-09-07").setUntil("2018-10-7").setMaxTweets(10000)
+    tweet = tweet_manager.TweetManager.getTweets(tweeter_criteria)
+    df = twitter.tweets_to_dataframe(tweet)
+    df['sentiment'] = np.array([twitter.analyze_sentiment(tweet) for tweet in df['Tweets']])
+    df.to_csv("flood.csv")
+    time.sleep(1)
+    flood_real_time = flood_manager.getRealTimeWaterWatch()
+    flood_real_time.to_csv("flood-realtime.csv")
 
     '''
     #This is gathering tweet and USGS water data Dont delete

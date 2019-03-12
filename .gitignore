@@ -2,7 +2,7 @@
 # ignore dot files/directories
 .*
 !.gitignore
-
+fsia_test/
 *.autosave
 *.pyc
 *.user

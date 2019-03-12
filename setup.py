@@ -4,8 +4,8 @@ with open("README.md" , "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-     name="fsia",
-    version="0.0.1",
+    name="fsia",
+    version="0.0.3",
     author="Nattapon Donratanapat",
     author_email="pleuk5667@gmail.com",
     description="USGS and Twitter data gathering and analysis tools",
