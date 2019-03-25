@@ -54,7 +54,6 @@ class usgsFloodManager():
             usgs_df = usgs_df[usgs_df.flow != 0]
             return usgs_df
         except:
-            print("404: Unrespond Try Again")
             time.sleep(5)
     def getImageWaterWatch(self, id):
         selected_cam = imageWaterWatchModel()
@@ -70,7 +69,7 @@ class usgsFloodManager():
             open_cv_image = np.array(img)
             open_cv_image = open_cv_image[:, :, ::-1].copy()
             img_gray = cv2.cvtColor(open_cv_image, cv2.COLOR_BGR2GRAY)
-            cv2.imshow('image',open_cv_image)
+            cv2.imshow('image',img_gray)
             cv2.waitKey(0)
             cv2.destroyAllWindows()
 
