@@ -24,7 +24,7 @@ if __name__ == "__main__":
     #nasa_manager.getEarthData()
     flood_manager = flood_real_time.usgsFloodManager()
     flood_criteria = usgs_criteria.usgsCriteria()
-    flood_parameter = ["00065", "00045"]
+    flood_parameter = ["00060", "00065"]
     flood_criteria.setStationNumber('02169500').setParameters(flood_parameter).setSince("2019-03-01").setUntil("2019-03-05").setRegion("sc")
     flood_manager.getFloodDataCSV(flood_criteria)
     flood_manager.getImageWaterWatch("02169506")
