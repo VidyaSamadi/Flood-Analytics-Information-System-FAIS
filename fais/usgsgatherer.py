@@ -110,5 +110,21 @@ def get_realtime_flood_csv(state, filename):
     df.to_csv(filename)
 
 
-def get_station_list(region):
+def get_station_list_dataframe(state):
+    df = get_realtime_flood_dataframe(state)
+    df_station = df.iloc[:,1:4]
+    return df_station
+
+def get_station_list_csv(state, filename):
+    df = get_station_list_dataframe(state)
+    if ".csv" not in filename:
+        filename = filename + ".csv"
+        df.to_csv(filename)
+        return True
+    df.to_csv(filename)
+
+def get_river_cam_sc(station):
+    return True
+
+def get_river_cam_sc_station_list():
     return True
