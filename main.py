@@ -16,7 +16,9 @@ if __name__ == "__main__":
     twitter_until = "2018-10-20"
     twitter_criteria = twitter.create_twitter_criteria(twitter_username, twitter_keyword,twitter_since,twitter_until, 10000)
     print(twitter_criteria)
-    twitter.get_tweets_csv(twitter_criteria, "florence")
+    #twitter.get_tweets_csv(twitter_criteria, "florence")
+    usgs_criteria = usgs.create_usgs_criteria("SC","02130561", ["0065"], "2018-09-20", "2018-10-20")
+    usgs.get_realtime_flood_csv("nc","ncrealtime.csv")
     
 
 

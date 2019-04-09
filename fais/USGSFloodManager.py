@@ -47,9 +47,10 @@ class usgsFloodManager():
         self.cameras.append(pocotaligo_river_upstream_cam)
         self.cameras.append(pocotaligo_river_downstream_cam)
 
-    def getRealTimeWaterWatch(self):
+    def getRealTimeWaterWatch(self, region):
         try:
-            usgs_csv = pd.read_csv("https://waterwatch.usgs.gov/webservices/realtime?region=sc&format=csv")
+            data_url = "https://waterwatch.usgs.gov/webservices/realtime?region=" + region + "&format=csv"
+            usgs_csv = pd.read_csv(data_url)
             usgs_df = pd.DataFrame(usgs_csv)
             usgs_df = usgs_df[usgs_df.flow != 0]
             return usgs_df

@@ -1,26 +1,21 @@
 import fais.USGSFloodCriteria as criteria
 import fais.USGSFloodManager as usgs
 
-#   Create the criteria for twitter search
-#   This criteria is used in getting twitter data
+#   Create the criteria for USGS data queary
+#   This criteria is used in getting USGS data
 #   Return the empty criteria if not successfully
-def check_region(region):
-    if isinstance(region, str):
-        return False
-    region = region.upper()
+def check_states(state):
+    state = state.upper()
     states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", 
           "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", 
           "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", 
           "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
           "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
-    contained = False
-    for state in states:
-        if state == region:
-            contained = True
-    if contained == False:
-        print("The state is not match please enter the US's state abbriviation")
-        return False
-    return True
+    for region in states:
+        if region == state:
+            return True    
+    print("The state is not match please enter the US's state abbriviation")
+    return False
 
 def create_usgs_criteria(region=None,station=None, parameters=None, since=None, until=None):
     usgs_criteria = criteria.usgsCriteria()
@@ -42,16 +37,17 @@ def create_usgs_criteria(region=None,station=None, parameters=None, since=None, 
         usgs_criteria.setSince(since)
     if until != None:
         usgs_criteria.setUntil(until)
+    return usgs_criteria
 
-def update_region(criteria=None, region=None):
+def update_state(criteria=None, state=None):
     if criteria == None:
         print("Criteria missing please include the criteria")
         return
-    if region == None:
+    if state == None:
         print("region missing")
         return
-    elif check_region(region):
-        criteria.setRegion(region)
+    elif check_states(state):
+        criteria.setRegion(state)
         return criteria
     return
 
@@ -85,7 +81,33 @@ def update_since(criteria=None, since=None):
         print("since missing")
         return
     criteria.setParameters(since)
-    return criteriaE
+    return criteria
+
+def update_until(criteria=None, until=None):
+    if criteria == None:
+        print("Criteria missing please include the criteria")
+        return
+    if until == None:
+        print("until missing")
+        return
+    criteria.setParameters(until)
+    return criteria
+
+def get_realtime_flood_dataframe(state):
+    flood_manager = usgs.usgsFloodManager()
+    if check_states(state):
+        realtime_data = flood_manager.getRealTimeWaterWatch(state)
+        return realtime_data
+    print("The state not exist, please enter correct states")
+    return False
+
+def get_realtime_flood_csv(state, filename):
+    df = get_realtime_flood_dataframe(state)
+    if ".csv" not in filename:
+        filename = filename + ".csv"
+        df.to_csv(filename)
+        return True
+    df.to_csv(filename)
 
 
 def get_station_list(region):
