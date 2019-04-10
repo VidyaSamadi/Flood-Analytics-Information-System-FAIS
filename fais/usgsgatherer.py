@@ -123,8 +123,26 @@ def get_station_list_csv(state, filename):
         return True
     df.to_csv(filename)
 
-def get_river_cam_sc(station):
-    return True
+def get_flood_data_dataframe(criteria):
+    flood_manager = usgs.usgsFloodManager()
+    flood_manager.getFloodData(criteria)
+    print("The state not exist, please enter correct states")
 
-def get_river_cam_sc_station_list():
-    return True
+    return False
+def get_river_cam_sc_grey(station):
+    flood_manager = usgs.usgsFloodManager()
+    for camera in flood_manager.cameras:
+        if camera.id == station:
+            cams = flood_manager.getImageWaterWatch(station,True)
+            return cams
+    print("The station is not exist in South Carolina River Cams")
+    return False
+
+def get_river_cam_sc_color(station):
+    flood_manager = usgs.usgsFloodManager()
+    for camera in flood_manager.cameras:
+        if camera.id == station:
+            cams = flood_manager.getImageWaterWatch(station)
+            return cams
+    print("The station is not exist in South Carolina River Cams")
+    return False

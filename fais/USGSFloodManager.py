@@ -12,11 +12,13 @@ import json
 import http
 import urllib
 from fsia.usgsgatherer.imageProcessor import imageProcessor
+import csv
 
 class imageWaterWatchModel():
     def __init__(self):
         self.id = ""
         self.link = ""
+        self.name = ""
 
     def setLink(self, link):
         self.link = link
@@ -56,7 +58,7 @@ class usgsFloodManager():
             return usgs_df
         except:
             time.sleep(5)
-    def getImageWaterWatch(self, id):
+    def getImageWaterWatch(self, id, grey=False):
         selected_cam = imageWaterWatchModel()
         for cam in self.cameras:
             if cam.id == id:
@@ -70,12 +72,13 @@ class usgsFloodManager():
             open_cv_image = np.array(img)
             open_cv_image = open_cv_image[:, :, ::-1].copy()
             img_gray = cv2.cvtColor(open_cv_image, cv2.COLOR_BGR2GRAY)
-            cv2.imshow('image',img_gray)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
+            if grey == True:
+                return img_gray
+            else:
+                return open_cv_image
 
-    def getFloodDataCSV(self, USGS_criteria):
-        url = "https://waterdata.usgs.gov/"
+    def getFloodData(self, USGS_criteria):
+        url = "https://nwis.waterdata.usgs.gov/"
         url_criteria = ''
         if hasattr(USGS_criteria, 'region'):
             url_criteria += USGS_criteria.region + '/nwis/uv?'
@@ -93,8 +96,11 @@ class usgsFloodManager():
 
         if hasattr(USGS_criteria, 'since') and hasattr(USGS_criteria, 'until'):
             url_criteria += 'period=&begin_date=' + str(USGS_criteria.since) + '&end_date=' + str(USGS_criteria.until)
+        df = pd.DataFrame()
+        col = []
 
         url += url_criteria
+        line_num = 0
         text = urllib.request.urlopen(url)
         f = open("flood_old.csv", "w+")
         for line in text:
@@ -102,6 +108,14 @@ class usgsFloodManager():
             if line[0] == '#':
                 pass
             else:
-                temp = line.replace('\t', ',')
-                f.writelines(temp)
+                line_num += 1
+                if line_num == 1:
+                    temp = line.replace('\t', ',')
+                    col = csv.reader(temp)
+                    print(col)
+                if line_num == 2:
+                    pass
+                else:
+                    temp = line.replace('\t', ',')
+                    f.writelines(temp)
         f.close()
