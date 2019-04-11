@@ -11,6 +11,7 @@ import time
 import json
 import http
 import urllib
+import os
 from fsia.usgsgatherer.imageProcessor import imageProcessor
 import csv
 
@@ -96,8 +97,6 @@ class usgsFloodManager():
 
         if hasattr(USGS_criteria, 'since') and hasattr(USGS_criteria, 'until'):
             url_criteria += 'period=&begin_date=' + str(USGS_criteria.since) + '&end_date=' + str(USGS_criteria.until)
-        df = pd.DataFrame()
-        col = []
 
         url += url_criteria
         line_num = 0
@@ -111,11 +110,27 @@ class usgsFloodManager():
                 line_num += 1
                 if line_num == 1:
                     temp = line.replace('\t', ',')
-                    col = csv.reader(temp)
-                    print(col)
-                if line_num == 2:
+                    f.writelines(temp)
+                elif line_num == 2:
                     pass
                 else:
                     temp = line.replace('\t', ',')
                     f.writelines(temp)
         f.close()
+        read_csv = pd.read_csv("flood_old.csv")
+        df = pd.DataFrame(read_csv)
+        df.drop(columns=['tz_cd', '176831_00065_cd'])
+        print(df)
+        cols = df.columns.values
+        for (i,col) in enumerate(cols):
+            if cols[i] == "agency_cd":
+                cols[i] = "agency"
+            elif col == "site_no":
+                cols[i] = "station number"
+            elif col == "176831_00065":
+                cols[i] = "Gage height (ft)"
+            elif col == "site_no":
+                cols[i] = "station number"
+        print("1")
+        os.remove("flood_old.csv")
+        return df

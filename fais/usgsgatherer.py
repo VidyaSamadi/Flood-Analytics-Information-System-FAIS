@@ -125,10 +125,16 @@ def get_station_list_csv(state, filename):
 
 def get_flood_data_dataframe(criteria):
     flood_manager = usgs.usgsFloodManager()
-    flood_manager.getFloodData(criteria)
-    print("The state not exist, please enter correct states")
+    df = flood_manager.getFloodData(criteria)
+    return df
 
-    return False
+def get_flood_data_csv(criteria,filename):
+    df = get_flood_data_dataframe(criteria)
+    if ".csv" not in filename:
+        filename = filename + ".csv"
+        df.to_csv(filename)
+        return True
+    df.to_csv(filename)
 def get_river_cam_sc_grey(station):
     flood_manager = usgs.usgsFloodManager()
     for camera in flood_manager.cameras:
