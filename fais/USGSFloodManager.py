@@ -119,7 +119,7 @@ class usgsFloodManager():
         f.close()
         read_csv = pd.read_csv("flood_old.csv")
         df = pd.DataFrame(read_csv)
-        df.drop(columns=['tz_cd', '176831_00065_cd'])
+        df.drop(columns=["agency_cd","tz_cd", "176831_00065_cd","176832_00060_cd", "176834_00045_cd"],inplace=True)
         print(df)
         cols = df.columns.values
         for (i,col) in enumerate(cols):
