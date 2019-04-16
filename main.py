@@ -21,7 +21,7 @@ if __name__ == "__main__":
     #usgs.get_flood_data_dataframe(usgs_criteria)
     df = usgs.get_station_list_dataframe("nc")
     print(df)
-    usgs_criteria = usgs.create_usgs_criteria("SC","02130561", ["00065", "00045","00060"], "2018-10-20", "2018-12-20")
+    usgs_criteria = usgs.create_usgs_criteria("SC","e", ["00065", "00045","00060"], "2018-10-20", "2018-12-20")
     usgs.get_flood_data_csv(usgs_criteria, "sc_02130561.csv")
     temp = usgs.get_river_cam_sc_color("02169506")
     
