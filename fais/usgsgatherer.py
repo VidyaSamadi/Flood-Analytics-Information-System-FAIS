@@ -112,7 +112,7 @@ def get_realtime_flood_csv(state, filename):
 
 def get_station_list_dataframe(state):
     df = get_realtime_flood_dataframe(state)
-    df_station = df.iloc[:,1:4]
+    df_station = df.iloc[:,0:4]
     return df_station
 
 def get_station_list_csv(state, filename):
@@ -135,6 +135,7 @@ def get_flood_data_csv(criteria,filename):
         df.to_csv(filename)
         return True
     df.to_csv(filename)
+    
 def get_river_cam_sc_grey(station):
     flood_manager = usgs.usgsFloodManager()
     for camera in flood_manager.cameras:

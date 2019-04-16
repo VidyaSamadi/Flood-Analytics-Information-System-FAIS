@@ -119,8 +119,12 @@ class usgsFloodManager():
         f.close()
         read_csv = pd.read_csv("flood_old.csv")
         df = pd.DataFrame(read_csv)
-        df.drop(columns=["agency_cd","tz_cd"],inplace=True)
-        print(df)
+        cols = df.columns.values
+        remove_col = ["agency_cd","tz_cd"]
+        for (i,col) in enumerate(cols):
+            if "cd" in col:
+                remove_col.append(col)
+        df.drop(columns=remove_col,inplace=True)
         cols = df.columns.values
         for (i,col) in enumerate(cols):
             if cols[i] == "agency_cd":
@@ -131,7 +135,7 @@ class usgsFloodManager():
                 cols[i] = "Gage height (ft)"
             elif "00060" in col:
                 cols[i] = "Discharge (ft^3/S)"
-            elif "00045 " in col:
+            elif "00045" in col:
                 cols[i] = "Precipitation (in)"
         print("1")
         os.remove("flood_old.csv")
