@@ -31,7 +31,7 @@ class imageWaterWatchModel():
 class usgsFloodManager():
     def __init__(self):
         self.cameras = []
-        rocky_creed_cam = imageWaterWatchModel().setLink("http://b7b.hdrelay.com/cameras/fa96bb1e-426d-4b40-a820-251713325420/GetOneShot?size=800x450").setID("021603273")
+        rocky_creek_cam = imageWaterWatchModel().setLink("http://b7b.hdrelay.com/cameras/fa96bb1e-426d-4b40-a820-251713325420/GetOneShot?size=800x450").setID("021603273")
         lake_moultrie_cam = imageWaterWatchModel().setLink("http://b7b.hdrelay.com/cameras/dab6dc0d-d702-4146-899f-85a7945de140/GetOneShot?size=800x450").setID("02172002")
         rocky_branch_Whalet_cam = imageWaterWatchModel().setLink("http://b7b.hdrelay.com/cameras/2fb4ae88-446d-4632-a849-d426240ccca5/GetOneShot?size=800x450").setID("02169506")
         peedee_river_cam = imageWaterWatchModel().setLink("http://b6b.hdrelay.com/cameras/42336a6b-5be8-443c-97c9-3d70da459e88/GetOneShot?size=800x450").setID("02130810")
