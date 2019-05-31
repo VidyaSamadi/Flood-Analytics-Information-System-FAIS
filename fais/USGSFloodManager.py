@@ -4,7 +4,6 @@ from io import BytesIO
 import pyquery
 import pandas as pd
 import numpy as np
-import fsia.usgsgatherer.USGSFloodCriteria as criteria
 import cv2
 import re
 import time
@@ -12,7 +11,6 @@ import json
 import http
 import urllib
 import os
-from fsia.usgsgatherer.imageProcessor import imageProcessor
 import csv
 
 class imageWaterWatchModel():

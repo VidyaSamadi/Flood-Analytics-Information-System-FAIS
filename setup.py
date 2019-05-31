@@ -5,7 +5,7 @@ with open("README.md" , "r") as fh:
 
 setuptools.setup(
     name="fais",
-    version="0.0.1",
+    version="0.0.12",
     author="Nattapon Donratanapat",
     author_email="pleuk5667@gmail.com",
     description="USGS and Twitter data gathering and analysis tools",
@@ -18,4 +18,17 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    install_requires=[
+        'pandas',
+        'numpy',
+        'urllib3',
+        'requests',
+        'opencv-python',
+        'netCDF4',
+        'matplotlib',
+        'textblob',
+        'pyquery',
+        'tweepy',
+        'Pillow'
+    ]
 )

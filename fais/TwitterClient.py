@@ -4,7 +4,6 @@ from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
 from tweepy import TweepError
-from fsia.tweetgatherer import TweetAnalyzer
 import time
 import twitterkeys
 import pandas as pd
