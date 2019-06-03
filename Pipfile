@@ -15,6 +15,7 @@ textblob = "==0.15.2"
 pyquery = "==1.4.0"
 tweepy = "==3.7.0"
 "netCDF4" = "==1.4.2"
+pillow = "*"
 
 [dev-packages]
 
