@@ -65,32 +65,7 @@ class twitterClient():
             except StopIteration:
                 return tweets
 
-    def get_tweets_between_date2(self, start, end):
-        df = pd.DataFrame()
-        c = Cursor(self.twitter_client.user_timeline, id=self.twitter_user).pages()
-        analyzer = TweetAnalyzer.tweet_analyzer()
-        while True:
-            try:
-                tweets_list = c.next()
-                tweets = []
-                for tweet in tweets_list:                
-                    if tweet.created_at < end and tweet.created_at > start:
-                        tweets.append(tweet)
-                    elif tweet.created_at < start:
-                        return df
-                if len(tweets) != 0:
-                    temp = analyzer.tweets_to_dataframe(tweets)
-                    if df.empty:
-                        df = temp
-                    else:                        
-                        df.append(temp, ignore_index=True)
-                time.sleep(0.15)
-            except TweepError:
-                time.sleep(60*15)
-                continue
-            except StopIteration:
-                return df
-                
+                   
     def get_image_tweet(self):
         tweets = []
         c = Cursor(self.twitter_client.user_timeline, id=self.twitter_user, include_entities=True).pages()
