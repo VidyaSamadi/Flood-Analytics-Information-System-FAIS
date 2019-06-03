@@ -7,17 +7,17 @@ FAIS is a python package developed using python 3.7, which is not supported by p
 ### Prerequisites
 
 The package dependencies are:
-    1. pandas
-    2. numpy=1.15.4
-    3. rpy2=2.9.4
-    4. urllib3=1.24.1
-    5. requests=2.21.0
-    6. opencv-python=4.0.0.21
-    7. netCDF4=1.4.2
-    8. matplotlib=3.0.2
-    9. textblob=0.15.2
-    10. pyquery=1.4.0
-    11. tweepy=3.7.0
+    *  pandas
+    *  numpy=1.15.4
+    *  rpy2=2.9.4
+    *  urllib3=1.24.1
+    *  requests=2.21.0
+    *  opencv-python=4.0.0.21
+    *  netCDF4=1.4.2
+    *  matplotlib=3.0.2
+    *  textblob=0.15.2
+    *  pyquery=1.4.0
+    *  tweepy=3.7.0
 
 
 ### Installing
@@ -27,13 +27,28 @@ The package can be installed using Pypi installation
     $ pip install fais
 
 
-### Usage
+## Usage
+
+### Real Time USGS Flood Data
+
+Each states has their own flood monitoring station located throughout the states. The API allows the user to target specific state and get the real time flood information. The user also has choices to either save the data as csv file or return it as a panda dataframe
+
+#### Example 1
+
+The user wants to gather the South Carolina real time data, and save it as a csv file called “sc_realtime.csv”
+
+```python
+>>> from fais import usgsgatherer as usgs
+>>> usgs.get_realtime_flood_csv(“sc”, “sc_realtime.csv”)
+
+```
+The software will download the real time flood reading from every station in South Carolina, deleted the null result, and save it as sc_realtime.csv file at the current directory. The inputs of this function are the targeted State abbreviation and the file name. 
 
 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Nattapon Donratanapat** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
