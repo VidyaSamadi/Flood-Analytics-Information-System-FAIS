@@ -57,22 +57,23 @@ The object df is contain a result of the realtime flood data as a panda data fra
 #### Example 3
 
 The user wants to gather the South Carolina river cam image rocky creek cam station 021603273
-The station list can be found at [rivercam]("https://www.usgs.gov/centers/sa-water/science/river-webcams-south-atlantic-water-science-center-georgia-north-and-south?qt-science_center_objects=0#qt-science_center_objects")
+The station list can be found at [rivercam](https://www.usgs.gov/centers/sa-water/science/river-webcams-south-atlantic-water-science-center-georgia-north-and-south?qt-science_center_objects=0#qt-science_center_objects)
 
 ```python
 >>> from fais import usgsgatherer as usgs
->>> df = usgs.get_realtime_flood_(“az”)
+>>> img = usgs.get_river_cam_sc_color(“021603273”)
 
 ```
-
+The image file will contain an image array of the real time river cam. The image is supported by 
 ### Historical USGS Flood Data
 
 #### Example 1
 The user wants to gather the North Carolina Flood data during the Hurricane Mathew, October 06-07, 2016 with specific station number 0212427947, which is station REEDY CREEK AT SR NR CHARLOTTE, NC  and save it as a csv file called “nc_mathew.csv”
 
 ```python
->>>from fais import usgsgatherer
->>>criteria = usgsgatherer.create_usgs_criteria("NC","0212427947", ["00065", "00045","00060"], "2016-10-06", "2016-10-07") >>>usgs.get_flood_data_csv(criteria, "nc_mathew.csv")
+>>> from fais import usgsgatherer
+>>> criteria = usgsgatherer.create_usgs_criteria("NC","0212427947", ["00065", "00045","00060"], "2016-10-06", "2016-10-07")
+>>> usgs.get_flood_data_csv(criteria, "nc_mathew.csv")
 
 ```
 The software will download the flood data from REEDY CREEK AT SR NR CHARLOTTE, NC deleted the null result, and save it as nc_mathew.csv file at the current directory. The inputs of this function are the targeted criteria which include the targeted state, station number, parameters, and date and the file name. 
@@ -88,7 +89,22 @@ The user can received the all of the flood station list from each state to used 
 ```
 
 
-### Twitter USGS Flood Data
+### Twitter Data
+
+#### Example 1
+The user wants to gather Tweets from the National Weather Service during Hurricane Florence Flood September 20, 2018 – October 20, 2018 and save it as a csv file called “nws_florence.csv”
+
+
+```python
+>>> from fais import twittergatherer 
+>>> twitter_username = "nws"
+>>> twitter_keyword = None
+>>> twitter_since = "2018-09-20"
+>>> twitter_until = "2018-10-20"
+>>> twitter_criteria = twittergatherer.create_twitter_criteria(twitter_username, twitter_keyword,twitter_since,twitter_until, 10000)
+>>> twittergatherer.get_tweets_csv(twitter_criteria, "nws_florence.csv")
+```
+The software will download all Tweets posted by National Weather Service’s Twitter account since September 20, 2018 – October 20, 2018 with the maximum of 10,000 tweets.
 ## Authors
 
 
