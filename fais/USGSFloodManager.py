@@ -38,7 +38,7 @@ class usgsFloodManager():
         tearcoat_branch_downstream_cam = imageWaterWatchModel().setLink("http://b6b.hdrelay.com/cameras/009e9855-a077-4c2a-8289-10eea8ba9f0f/GetOneShot?size=800x450").setID("021355015_2")
         pocotaligo_river_upstream_cam = imageWaterWatchModel().setLink("http://b6b.hdrelay.com/cameras/a8a00672-f089-4b2d-bf36-85e41a838488/GetOneShot?size=800x450").setID("02135615_1")
         pocotaligo_river_downstream_cam = imageWaterWatchModel().setLink("http://b6b.hdrelay.com/cameras/39f23793-0e60-43f6-a0b4-ccb073004640/GetOneShot?size=800x450").setID("02172002_1")
-        self.cameras.append(rocky_creed_cam)
+        self.cameras.append(rocky_creek_cam)
         self.cameras.append(lake_moultrie_cam)
         self.cameras.append(rocky_branch_Whalet_cam)
         self.cameras.append(peedee_river_cam)
