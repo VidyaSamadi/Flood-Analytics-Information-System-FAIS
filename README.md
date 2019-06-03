@@ -7,17 +7,17 @@ FAIS is a python package developed using python 3.7, which is not supported by p
 ### Prerequisites
 
 The package dependencies are:            
- Markup : *  pandas
-          *  numpy
-          *  rpy2
-          *  urllib3
-          *  requests
-          *  opencv-python
-          *  netCDF4
-          *  matplotlib
-          *  textblob
-          *  pyquery
-          *  tweepy
+*  pandas
+*  numpy
+*  rpy2
+*  urllib3
+*  requests
+*  opencv-python
+*  netCDF4
+*  matplotlib
+*  textblob
+*  pyquery
+*  tweepy
 
 
 ### Installing
