@@ -112,8 +112,8 @@ The software will download all Tweets posted by National Weather Service’s Twi
 
 
 * **Nattapon Donratanapat** 
-
-
+* **Dr. Vidya Samadi** 
+* **Dr. Jose M. Vidal** 
 
 ## License
 
