@@ -1,7 +1,9 @@
 ### Citations
 If you find our code to be useful, please cite the following papers:
 Erfani, M., Samadi, V. 2019. Application of pattern recognition methods in flood studies. The American Geophysical Union. 9-13 December 2019. San Francisco, California. 
+
 Donratanapat, N., Samadi, V. Vidal, J.M. 2019. Development of a Prototype for Assessing Historical and Real Time Flood Information. The American Geophysical Union. 9-13 December 2019. San Francisco, California. 
+
 Samadi, V., Donratanapat, N.*, Vidal, J.M. 2019. A national-scale real-time data analytics application for assessing the potential impacts of flooding on communities. The American Geophysical Union. 9-13 December 2019. San Francisco, California. 
 
 # Project Title
