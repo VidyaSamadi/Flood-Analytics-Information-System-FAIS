@@ -1,5 +1,5 @@
 ### Citations
-If you find our code to be useful, please cite the following papers:
+If you find our code useful, please cite the following papers:
 
 Donratanapat, N., Samadi, V. Vidal, J.M. 2019. Development of a Prototype for Assessing Historical and Real Time Flood Information. The American Geophysical Union. 9-13 December 2019. San Francisco, California. 
 
