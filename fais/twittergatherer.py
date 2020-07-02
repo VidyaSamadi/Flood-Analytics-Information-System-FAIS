@@ -89,5 +89,4 @@ def get_tweets_csv(criteria, filename):
     df = get_tweets_dataframe(criteria)
     if ".csv" not in filename:
         filename = filename + ".csv"
-    df.to_csv(filename)
-
+    df.to_csv(filename) 
