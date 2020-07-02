@@ -3,7 +3,7 @@
 #	The Function is then send the Criteria TweetManager.py
 
 class usgsCriteria:
-    def __init__(self):
+    def __init__(self):        
         pass
 
     def setRegion(self, region):
