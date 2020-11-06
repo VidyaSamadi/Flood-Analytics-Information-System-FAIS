@@ -1,6 +1,8 @@
 ### Citations
 If you find our code useful, please cite the following papers:
 
+Donratanapat, N.,   Samadi S., Vidal, M.J., S. Sadeghi Tabas. 2020. A National-scale Big Data Prototype for Real-time Flood Emergency Response and Management. Environmental Modelling & Software. DOI: 10.1016/j.envsoft.2020.104828. 
+
 Donratanapat, N., Samadi, V. Vidal, J.M. 2019. Development of a Prototype for Assessing Historical and Real Time Flood Information. The American Geophysical Union. 9-13 December 2019. San Francisco, California. 
 
 Samadi, V., Donratanapat, N.*, Vidal, J.M. 2019. A national-scale real-time data analytics application for assessing the potential impacts of flooding on communities. The American Geophysical Union. 9-13 December 2019. San Francisco, California. 
