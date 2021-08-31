@@ -98,7 +98,7 @@ def get_realtime_flood_dataframe(state):
     if check_states(state):
         realtime_data = flood_manager.getRealTimeWaterWatch(state)
         return realtime_data
-    print("The state not exist, please enter correct states")
+    print("The state not exist, please enter correct state")
     return False
 
 def get_realtime_flood_csv(state, filename):
