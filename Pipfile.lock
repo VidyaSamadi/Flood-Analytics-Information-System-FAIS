@@ -241,9 +241,10 @@
         },
         "nltk": {
             "hashes": [
-                "sha256:3a64b1cb685bbf344adec416871fee07996671c876ff313b3e504158fa1500e1"
+                "sha256:bed45551259aa2101381bbdd5df37d44ca2669c5c3dad72439fa459b29137d94"
             ],
-            "version": "==3.4.1"
+            "index": "pypi",
+            "version": "==3.4.5"
         },
         "numpy": {
             "hashes": [
