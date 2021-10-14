@@ -7,6 +7,18 @@ Donratanapat, N., Samadi, V. Vidal, J.M. 2019. Development of a Prototype for As
 
 Samadi, V., Donratanapat, N.*, Vidal, J.M. 2019. A national-scale real-time data analytics application for assessing the potential impacts of flooding on communities. The American Geophysical Union. 9-13 December 2019. San Francisco, California. 
 
+If you find this paper or code useful, we encourage you to cite the paper.
+
+@article{donratanapat2020national,
+  title={A national scale big data analytics pipeline to assess the potential impacts of flooding on critical infrastructures and communities},
+  author={Donratanapat, N and Samadi, S and Vidal, Jos{\'e} M and Tabas, S Sadeghi},
+  journal={Environmental Modelling \& Software},
+  volume={133},
+  pages={104828},
+  year={2020},
+  publisher={Elsevier}
+}
+
 # Project Title
 Flood Analytics Information System (FAIS) - Big Data Gathering package from twitter and USGS. In addition, FAIS application will be also released in March 2020. STAY TUNED!
 
