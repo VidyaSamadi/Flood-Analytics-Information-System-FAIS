@@ -7,7 +7,7 @@ Donratanapat, N., Samadi, V. Vidal, J.M. 2019. Development of a Prototype for As
 
 Samadi, V., Donratanapat, N.*, Vidal, J.M. 2019. A national-scale real-time data analytics application for assessing the potential impacts of flooding on communities. The American Geophysical Union. 9-13 December 2019. San Francisco, California. 
 
-If you find this paper or code useful, we encourage you to cite the paper. BibTeX:
+**If you find this paper or code useful, we encourage you to cite the paper. BibTeX:**
 
 @article{donratanapat2020national,
   title={A national scale big data analytics pipeline to assess the potential impacts of flooding on critical infrastructures and communities},
