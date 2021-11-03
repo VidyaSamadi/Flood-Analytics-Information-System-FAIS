@@ -22,6 +22,7 @@ class tweet_analyzer():
         else:
             return -1
 
+        
     def tweets_to_dataframe(self, tweets):
         df = pd.DataFrame(data=[tweet.text for tweet in tweets], columns=['Tweets'])
         df['date'] = np.array([tweet.created_at for tweet in tweets])
