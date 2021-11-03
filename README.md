@@ -25,7 +25,7 @@ Flood Analytics Information System (FAIS) - Big Data Gathering package from twit
 ## Getting Started
 FAIS is a python package developed using python 3.7, which is not supported by python2. The package is used as a data gathering tool for USGS flood data and Twitter Data. The user can specifically target the flood station in each State in the US for the historical data as well as real time flood data. To gather Twitter feeds, the user can specified the targeted username or keyword with date gape to gather all the tweets that match the criteria
 
-### Prerequisites
+### Prerequisites 
 
 The package dependencies are:            
 *  pandas
